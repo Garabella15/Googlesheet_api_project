@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 
 def gsheet2df(spreadsheet_name, sheet_num):
     scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-    credentials_path = 'project-368812-542f0f0ad44b.json'
+    credentials_path = 'project.json'
     
     credentials = sac.from_json_keyfile_name(credentials_path, scope)
     client = gspread.authorize(credentials)
@@ -43,23 +43,11 @@ print(connection)
 
 
 # #outputs the execution time of the python statement 
-# Insurance_table = Table('data', connection,
-#                             Column('age', String),
-#                             Column('sex', String),
-#                             Column('bmi', String),
-#                             Column('children', String),
-#                             Column('smoker', String),
-#                             Column('region', String),
-#                             Column('charges', Integer)
-#                             )
 data.to_sql('Insurance', con = engine, if_exists = 'replace', index= False, schema = "public")
 # connection.execute('COMMIT')
 # connection.execute('grant select on public.Insurance to root;')
 # connection.execute('COMMIT')
-Query = """
-        SELECT * FROM "Insurance"
-        
-        """
+Query = """ SELECT * FROM "Insurance" """
 result = connection.execute(Query)
 
 for row in result:
