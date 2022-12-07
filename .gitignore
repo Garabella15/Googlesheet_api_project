@@ -5,7 +5,6 @@ __pycache__/
 
 # C extensions
 *.so
-
 # Distribution / packaging
 .Python
 build/
@@ -18,14 +17,6 @@ ipython_config.py
 # pyenv
 .python-version
 
-
-
-
-
-
-
-
-
 # Environments
 .env
 .venv
@@ -35,5 +26,4 @@ venv/
 Client_secret.json
 project-368812-542f0f0ad44b.json
 googel-postgresql-3fa739305f93.json
-
 .gitignore.txt
