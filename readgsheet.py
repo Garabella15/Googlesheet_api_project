@@ -3,8 +3,8 @@ from oauth2client.service_account import ServiceAccountCredentials as sac
 import pandas as pd
 import sqlalchemy as sa
 # from sqlalchemy import Table, Column, String, select, Integer
-# import os
-# from dotenv import load_dotenv
+import os
+from dotenv import load_dotenv
 # import psycopg2
 
 
@@ -26,16 +26,17 @@ def gsheet2df(spreadsheet_name, sheet_num):
 data = gsheet2df('insurance', 0)
 
 
-# establishing connection to postgresql database
+# Load environment variable from dotenv
+load_dotenv()
+POSTGRES_USER = os.getenv("POSTGRES_USER")
+POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
+POSTGRES_DB = os.getenv("POSTGRES_DB")
+POSTGRES_Host = os.getenv("POSTGRES_HOST")
+POSTGRES_PORT = os.getenv("POSTGRES_PORT")
 
-POSTGRES_USER="root"
-POSTGRES_PASSWORD="password"
-POSTGRES_DB= "postgres"
-POSTGRES_HOST= "localhost"
-POSTGRES_PORT= 5432
 
-# ### CREATE A CONNECTION TO REDSHIFT DB
-connection_string = "postgresql+psycopg2://%s:%s@%s:%s/%s" % (POSTGRES_USER,POSTGRES_PASSWORD,POSTGRES_HOST,str(POSTGRES_PORT),POSTGRES_DB)
+### CREATE A CONNECTION TO REDSHIFT DB
+connection_string = "postgresql+psycopg2://%s:%s@%s:%s/%s" % (POSTGRES_USER,POSTGRES_PASSWORD,POSTGRES_Host,str(POSTGRES_PORT),POSTGRES_DB)
 engine = sa.create_engine(connection_string, pool_pre_ping=True)
 connection = engine.connect()
 print(connection)
