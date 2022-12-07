@@ -33,7 +33,6 @@ env/
 venv/
 # secret keys
 Client_secret.json
-Client_seret.json.json
 project-368812-542f0f0ad44b.json
 googel-postgresql-3fa739305f93.json
 
