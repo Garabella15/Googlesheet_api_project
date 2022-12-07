@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+.venv/include
+pyvenv.cfg
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+
+
+
+
+
+
+
+
+# Environments
+.env
+.venv
+env/
+venv/
+# secret keys
+Client_secret.json
+project-368812-542f0f0ad44b.json
+googel-postgresql-3fa739305f93.json
+
+.gitignore.txt
